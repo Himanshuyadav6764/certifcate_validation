@@ -3,6 +3,9 @@
     "serve": "^14.2.5"
   },
   "dependencies": {
-    "lucide-react": "^0.544.0"
+    "lucide-react": "^0.544.0",
+    "react": "...",
+    "react-dom": "...",
+    "vite": "^5.0.0"
   }
 }
