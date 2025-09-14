@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
-import { ArrowLeft, Shield, User, Building, Eye, EyeOff, Mail, Lock } from 'lucide-react';
-import { UserType } from '../App';
+import { ArrowLeft, Shield, User, Building, Eye, EyeOff, Mail, Lock, Database, Server, Zap } from 'lucide-react';
 
 interface LoginPageProps {
-  onLogin: (type: UserType) => void;
+  onLogin: (type: 'user' | 'institution') => void;
   onBack: () => void;
 }
 
@@ -31,13 +30,13 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin, onBack }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-teal-700 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
       <div className="w-full max-w-6xl grid lg:grid-cols-2 gap-8 items-center">
         {/* Left Side - Branding */}
-        <div className="text-white space-y-8 lg:pr-12">
+        <div className="text-blue-900 space-y-8 lg:pr-12">
           <button 
             onClick={onBack}
-            className="flex items-center text-blue-200 hover:text-white transition-colors mb-8 group"
+            className="flex items-center text-blue-600 hover:text-blue-800 transition-colors mb-8 group"
           >
             <ArrowLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
             Back to Home
@@ -45,45 +44,63 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin, onBack }) => {
           
           <div className="space-y-6">
             <div className="flex items-center space-x-4">
-              <div className="bg-white/10 backdrop-blur-md p-3 rounded-xl">
-                <Shield className="w-8 h-8 text-white" />
+              <div className="bg-white p-3 rounded-2xl shadow-lg border border-blue-100">
+                <Shield className="w-8 h-8 text-blue-600" />
               </div>
-              <h1 className="text-3xl font-bold">SecureVerify</h1>
+              <h1 className="text-3xl font-bold text-blue-800">karamProof</h1>
             </div>
             
-            <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+            <h2 className="text-4xl md:text-5xl font-bold leading-tight text-blue-900">
               Secure Access to Certificate Verification
             </h2>
             
-            <p className="text-xl text-blue-200 leading-relaxed">
+            <p className="text-xl text-blue-700 leading-relaxed">
               Join our platform to verify certificates with AI-powered accuracy and blockchain security. 
               Trusted by institutions worldwide.
             </p>
           </div>
           
           <div className="grid grid-cols-2 gap-6 pt-8">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-white">2.5M+</div>
-              <div className="text-blue-200">Certificates Verified</div>
+            <div className="text-center p-4 bg-white rounded-2xl shadow-md border border-blue-100">
+              <div className="text-3xl font-bold text-blue-800">2.5M+</div>
+              <div className="text-blue-600">Certificates Verified</div>
             </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-white">99.9%</div>
-              <div className="text-blue-200">Accuracy Rate</div>
+            <div className="text-center p-4 bg-white rounded-2xl shadow-md border border-blue-100">
+              <div className="text-3xl font-bold text-blue-800">99.9%</div>
+              <div className="text-blue-600">Accuracy Rate</div>
+            </div>
+          </div>
+
+          {/* Security Features */}
+          <div className="pt-8">
+            <h3 className="text-xl font-bold text-blue-900 mb-4">Enterprise-Grade Security</h3>
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { icon: <Lock className="w-5 h-5 text-green-600" />, text: "256-bit Encryption" },
+                { icon: <Database className="w-5 h-5 text-blue-600" />, text: "Blockchain" },
+                { icon: <Zap className="w-5 h-5 text-amber-600" />, text: "AI Verification" },
+                { icon: <Server className="w-5 h-5 text-purple-600" />, text: "Secure Cloud" },
+              ].map((item, index) => (
+                <div key={index} className="flex items-center space-x-2 bg-white p-3 rounded-lg shadow-sm">
+                  {item.icon}
+                  <span className="text-sm text-blue-800">{item.text}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
 
         {/* Right Side - Login Form */}
-        <div className="bg-white/95 backdrop-blur-md rounded-3xl p-8 shadow-2xl">
+        <div className="bg-white rounded-3xl p-8 shadow-xl border border-blue-100">
           {/* User Type Toggle */}
-          <div className="bg-gray-100 p-1 rounded-xl mb-8">
+          <div className="bg-blue-50 p-1 rounded-xl mb-8">
             <div className="grid grid-cols-2 gap-1">
               <button
                 onClick={() => setLoginType('user')}
                 className={`flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
                   loginType === 'user'
-                    ? 'bg-white text-blue-600 shadow-md'
-                    : 'text-gray-600 hover:text-blue-600'
+                    ? 'bg-blue-600 text-white shadow-md'
+                    : 'text-blue-700 hover:text-blue-900'
                 }`}
               >
                 <User className="w-5 h-5 mr-2" />
@@ -93,8 +110,8 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin, onBack }) => {
                 onClick={() => setLoginType('institution')}
                 className={`flex items-center justify-center px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
                   loginType === 'institution'
-                    ? 'bg-white text-blue-600 shadow-md'
-                    : 'text-gray-600 hover:text-blue-600'
+                    ? 'bg-blue-600 text-white shadow-md'
+                    : 'text-blue-700 hover:text-blue-900'
                 }`}
               >
                 <Building className="w-5 h-5 mr-2" />
@@ -105,11 +122,11 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin, onBack }) => {
 
           {/* Login/Signup Toggle */}
           <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-2">
+            <h2 className="text-3xl font-bold text-blue-900 mb-2">
               {isLogin ? 'Welcome Back' : 'Create Account'}
             </h2>
-            <p className="text-gray-600">
-              {isLogin ? 'Sign in to your account' : 'Join SecureVerify today'}
+            <p className="text-blue-700">
+              {isLogin ? 'Sign in to your account' : 'Join karamProof today'}
             </p>
           </div>
 
@@ -117,17 +134,17 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin, onBack }) => {
             {/* Institution Name (only for signup) */}
             {!isLogin && loginType === 'institution' && (
               <div className="space-y-2">
-                <label className="block text-sm font-medium text-gray-700">
+                <label className="block text-sm font-medium text-blue-700">
                   Institution Name
                 </label>
                 <div className="relative">
-                  <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <Building className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-blue-400" />
                   <input
                     type="text"
                     name="institutionName"
                     value={formData.institutionName}
                     onChange={handleInputChange}
-                    className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                    className="w-full pl-11 pr-4 py-3 bg-blue-50 border border-blue-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-blue-900 placeholder-blue-400"
                     placeholder="Enter institution name"
                     required
                   />
@@ -137,17 +154,17 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin, onBack }) => {
 
             {/* Email */}
             <div className="space-y-2">
-              <label className="block text-sm font-medium text-gray-700">
+              <label className="block text-sm font-medium text-blue-700">
                 Email Address
               </label>
               <div className="relative">
-                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-blue-400" />
                 <input
                   type="email"
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                  className="w-full pl-11 pr-4 py-3 bg-blue-50 border border-blue-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-blue-900 placeholder-blue-400"
                   placeholder="Enter your email"
                   required
                 />
@@ -156,24 +173,24 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin, onBack }) => {
 
             {/* Password */}
             <div className="space-y-2">
-              <label className="block text-sm font-medium text-gray-700">
+              <label className="block text-sm font-medium text-blue-700">
                 Password
               </label>
               <div className="relative">
-                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-blue-400" />
                 <input
                   type={showPassword ? 'text' : 'password'}
                   name="password"
                   value={formData.password}
                   onChange={handleInputChange}
-                  className="w-full pl-11 pr-12 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                  className="w-full pl-11 pr-12 py-3 bg-blue-50 border border-blue-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-blue-900 placeholder-blue-400"
                   placeholder="Enter your password"
                   required
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                  className="absolute right-3 top-1/2 transform -translate-y-1/2 text-blue-400 hover:text-blue-600"
                 >
                   {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                 </button>
@@ -183,17 +200,17 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin, onBack }) => {
             {/* Confirm Password (only for signup) */}
             {!isLogin && (
               <div className="space-y-2">
-                <label className="block text-sm font-medium text-gray-700">
+                <label className="block text-sm font-medium text-blue-700">
                   Confirm Password
                 </label>
                 <div className="relative">
-                  <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-blue-400" />
                   <input
                     type={showPassword ? 'text' : 'password'}
                     name="confirmPassword"
                     value={formData.confirmPassword}
                     onChange={handleInputChange}
-                    className="w-full pl-11 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+                    className="w-full pl-11 pr-4 py-3 bg-blue-50 border border-blue-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-blue-900 placeholder-blue-400"
                     placeholder="Confirm your password"
                     required
                   />
@@ -204,7 +221,7 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin, onBack }) => {
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-blue-600 to-teal-600 text-white py-3 px-6 rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-teal-700 transform hover:scale-[1.02] transition-all duration-200 shadow-lg hover:shadow-xl"
+              className="w-full bg-blue-600 text-white py-3 px-6 rounded-xl font-semibold text-lg hover:bg-blue-700 transform hover:scale-[1.02] transition-all duration-200 shadow-md hover:shadow-lg"
             >
               {isLogin ? 'Sign In' : 'Create Account'}
             </button>
@@ -212,11 +229,11 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin, onBack }) => {
 
           {/* Toggle Login/Signup */}
           <div className="text-center mt-6">
-            <p className="text-gray-600">
+            <p className="text-blue-700">
               {isLogin ? "Don't have an account? " : "Already have an account? "}
               <button
                 onClick={() => setIsLogin(!isLogin)}
-                className="text-blue-600 hover:text-blue-700 font-medium transition-colors"
+                className="text-blue-600 hover:text-blue-800 font-medium transition-colors"
               >
                 {isLogin ? 'Sign Up' : 'Sign In'}
               </button>
@@ -224,16 +241,16 @@ const LoginPage: React.FC<LoginPageProps> = ({ onLogin, onBack }) => {
           </div>
 
           {/* Demo Login */}
-          <div className="mt-6 p-4 bg-gray-50 rounded-xl">
-            <p className="text-sm text-gray-600 text-center mb-3">Demo Credentials:</p>
+          <div className="mt-6 p-4 bg-blue-50 rounded-xl border border-blue-200">
+            <p className="text-sm text-blue-700 text-center mb-3">Demo Credentials:</p>
             <div className="grid grid-cols-2 gap-3 text-xs">
-              <div className="text-center">
-                <p className="font-medium">User Demo</p>
-                <p className="text-gray-500">user@demo.com / demo123</p>
+              <div className="text-center p-2 bg-white rounded-lg border border-blue-200">
+                <p className="font-medium text-blue-600">User Demo</p>
+                <p className="text-blue-700">user@demo.com / demo123</p>
               </div>
-              <div className="text-center">
-                <p className="font-medium">Institution Demo</p>
-                <p className="text-gray-500">admin@uni.edu / admin123</p>
+              <div className="text-center p-2 bg-white rounded-lg border border-blue-200">
+                <p className="font-medium text-blue-600">Institution Demo</p>
+                <p className="text-blue-700">admin@uni.edu / admin123</p>
               </div>
             </div>
           </div>

@@ -1,195 +1,294 @@
 import React from 'react';
-import { Shield, Zap, Eye, Database, TrendingUp, Users, ArrowRight, Check } from 'lucide-react';
+import { Shield, Eye, Users, Database, Zap, TrendingUp, ArrowRight, Lock, Fingerprint, Cpu, Server } from 'lucide-react';
 
 interface LandingPageProps {
   onNavigateToLogin: () => void;
 }
 
-const LandingPage: React.FC<LandingPageProps> = ({ onNavigateToLogin }) => {
+const KaramProofLanding: React.FC<LandingPageProps> = ({ onNavigateToLogin }) => {
   const features = [
     {
-      icon: <Eye className="w-8 h-8 text-blue-600" />,
+      icon: <Eye className="w-10 h-10 text-blue-400" />,
       title: "AI Forgery Catcher",
       description: "Instantly detect photo swaps, fake seals, or edited marks using advanced AI technology"
     },
     {
-      icon: <Shield className="w-8 h-8 text-teal-600" />,
+      icon: <Shield className="w-10 h-10 text-teal-400" />,
       title: "Blockchain Seal of Trust",
       description: "Each certificate holds a unique digital stamp proving authentic originality"
     },
     {
-      icon: <Users className="w-8 h-8 text-orange-600" />,
+      icon: <Users className="w-10 h-10 text-purple-400" />,
       title: "Dual Dashboards",
       description: "Separate interfaces for institutions to upload and users to verify certificates"
     },
     {
-      icon: <Database className="w-8 h-8 text-purple-600" />,
+      icon: <Database className="w-10 h-10 text-cyan-400" />,
       title: "API Integration",
       description: "Seamlessly merge different database formats into one unified system"
     },
     {
-      icon: <Zap className="w-8 h-8 text-green-600" />,
+      icon: <Zap className="w-10 h-10 text-green-400" />,
       title: "Real-Time Validation",
       description: "Instant verification against predefined criteria for accuracy & legitimacy"
     },
     {
-      icon: <TrendingUp className="w-8 h-8 text-red-600" />,
+      icon: <TrendingUp className="w-10 h-10 text-amber-400" />,
       title: "Analytics & Reports",
       description: "Monthly reports of fake verification attempts and security insights"
     }
   ];
 
-  const benefits = [
-    "99.9% accuracy in detecting fraudulent documents",
-    "Reduce verification time from days to seconds",
-    "Blockchain-secured immutable records",
-    "Government-grade security standards",
-    "24/7 automated verification system"
+  const newItems = [
+    {
+      title: "St. Columba's College, Hazaribagh - 2025",
+      description: "Marksheets of Class XI",
+      status: "Available Now"
+    },
+    {
+      title: "Rajkiya Unchch Vidyalaya , Jamshedpur- 2025",
+      description: "Marksheets of Class X and XII",
+      status: "Available Now"
+    },
+    {
+      title: "St.Xavier's School, Ranchi - 2025",
+      description: "Marksheets of Class X",
+      status: "Available Now"
+    },
+    {
+      title: "Central Board of Secondary Education - 2025",
+      description: "Marksheets of Class X and XII",
+      status: "Available Now"
+    }
+  ];
+
+  const stats = [
+    { number: "2.5M+", label: "Certificates Verified" },
+    { number: "99.9%", label: "Accuracy Rate" },
+    { number: "15,247", label: "Frauds Detected" },
+    { number: "500+", label: "Institutions Registered" }
   ];
 
   return (
-    <div className="min-h-screen">
-      {/* Hero Section */}
-      <div className="relative overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-teal-700">
-        <div className="absolute inset-0 bg-black opacity-10"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-          <div className="text-center">
-            <div className="flex items-center justify-center mb-8">
-              <div className="bg-white/10 backdrop-blur-md p-4 rounded-2xl">
-                <Shield className="w-12 h-12 text-white" />
-              </div>
+    <div className="min-h-screen bg-gray-50">
+      {/* Header */}
+      <header className="bg-gradient-to-r from-blue-800 to-blue-600 text-white shadow-md">
+        <div className="container mx-auto px-4 py-3">
+          <div className="flex justify-between items-center mb-3">
+            <div className="flex items-center space-x-2">
+              <Shield className="w-8 h-8 text-yellow-400" />
+              <span className="text-2xl font-bold">KaramProof</span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-              SecureVerify
-              <span className="block text-3xl md:text-4xl font-normal text-blue-200 mt-2">
-                AI-Powered Certificate Authentication
-              </span>
-            </h1>
-            <p className="text-xl text-blue-100 mb-12 max-w-3xl mx-auto leading-relaxed">
-              Combat fake degrees and certificates with our intelligent verification platform. 
-              Powered by AI, OCR, and blockchain technology for instant, secure authentication.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button 
-                onClick={onNavigateToLogin}
-                className="group bg-white text-blue-900 px-8 py-4 rounded-xl font-semibold text-lg hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl flex items-center justify-center"
-              >
-                Get Started
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-              <button className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white hover:text-blue-900 transition-all duration-300 transform hover:scale-105">
-                Watch Demo
-              </button>
+            <div className="flex space-x-4 text-sm">
+              <a href="#" className="hover:underline">Sign to main content</a>
+              <a href="#" className="hover:underline">A+</a>
+              <a href="#" className="hover:underline">A-</a>
+              <a href="#" className="hover:underline">English <span className="ml-1">▼</span></a>
             </div>
-          </div>
-        </div>
-        
-        {/* Animated Background Elements */}
-        <div className="absolute top-20 left-10 w-20 h-20 bg-white/5 rounded-full animate-pulse"></div>
-        <div className="absolute top-40 right-20 w-32 h-32 bg-teal-400/10 rounded-full animate-bounce delay-300"></div>
-        <div className="absolute bottom-20 left-1/4 w-16 h-16 bg-blue-400/10 rounded-full animate-pulse delay-700"></div>
-      </div>
-
-      {/* Features Section */}
-      <div className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Advanced Security Features
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our platform combines cutting-edge AI technology with blockchain security 
-              to deliver unparalleled certificate verification accuracy.
-            </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <div 
-                key={index}
-                className="group p-8 bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-lg hover:shadow-2xl border border-gray-100 hover:border-blue-200 transition-all duration-300 transform hover:-translate-y-2"
+          <nav className="flex justify-between items-center py-2">
+            <div className="flex space-x-6">
+              <a href="#" className="hover:bg-blue-700 px-3 py-1 rounded">Explore KaramProof</a>
+              <a href="#" className="hover:bg-blue-700 px-3 py-1 rounded">Become a Partner</a>
+            </div>
+            <div className="flex space-x-3">
+              <button 
+                onClick={onNavigateToLogin}
+                className="border border-white px-4 py-1 rounded hover:bg-blue-700 transition"
               >
-                <div className="mb-6 transform group-hover:scale-110 transition-transform duration-300">
-                  {feature.icon}
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {feature.description}
-                </p>
+                Login
+              </button>
+              <button 
+                onClick={onNavigateToLogin}
+                className="bg-orange-500 px-4 py-1 rounded hover:bg-orange-600 transition"
+              >
+                Register
+              </button>
+            </div>
+          </nav>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <div className="relative bg-blue-900 text-white overflow-hidden">
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-20"
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80')" }}
+        ></div>
+        <div className="container mx-auto px-4 py-16 relative">
+          <h1 className="text-4xl md:text-5xl font-bold text-center mb-6">Digital India Milestone</h1>
+          <p className="text-xl text-center max-w-3xl mx-auto mb-10">
+            NeGD Achieves Pan-India Integration of 2,000 e-Services of Government Departments on <strong>KaramProof</strong> and <strong>e-District Platforms</strong>
+          </p>
+          <div className="text-center">
+            <button 
+              onClick={onNavigateToLogin}
+              className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition"
+            >
+              Get Started
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* New Items Section */}
+      <section className="py-12 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center text-blue-800 mb-10">New in KaramProof</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {newItems.map((item, index) => (
+              <div key={index} className="bg-gray-50 border border-gray-200 rounded-lg p-5 shadow-sm hover:shadow-md transition">
+                <h3 className="font-semibold text-blue-800 mb-2">{item.title}</h3>
+                <p className="text-gray-600 text-sm mb-3">{item.description}</p>
+                <span className="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded">
+                  {item.status}
+                </span>
               </div>
             ))}
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Benefits Section */}
-      <div className="py-24 bg-gradient-to-r from-blue-50 to-teal-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
-                Why Choose SecureVerify?
-              </h2>
-              <div className="space-y-6">
-                {benefits.map((benefit, index) => (
-                  <div key={index} className="flex items-start space-x-4">
-                    <div className="bg-green-100 rounded-full p-2 mt-1">
-                      <Check className="w-5 h-5 text-green-600" />
-                    </div>
-                    <p className="text-lg text-gray-700">{benefit}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-            
-            <div className="relative">
-              <div className="bg-gradient-to-br from-blue-600 to-teal-600 rounded-3xl p-8 text-white transform rotate-3 hover:rotate-0 transition-transform duration-300">
-                <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6">
-                  <h3 className="text-2xl font-semibold mb-4">Real-Time Stats</h3>
-                  <div className="space-y-4">
-                    <div className="flex justify-between items-center">
-                      <span>Certificates Verified</span>
-                      <span className="text-2xl font-bold">2.5M+</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span>Fraud Detected</span>
-                      <span className="text-2xl font-bold text-red-300">15,247</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span>Accuracy Rate</span>
-                      <span className="text-2xl font-bold text-green-300">99.9%</span>
-                    </div>
-                  </div>
+      {/* Features Section */}
+      <section className="py-16 bg-gradient-to-b from-blue-50 to-gray-100">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center text-blue-800 mb-4">Advanced Security Features</h2>
+          <p className="text-gray-600 text-center max-w-2xl mx-auto mb-12">
+            Our platform combines cutting-edge AI technology with blockchain security to deliver unparalleled certificate verification accuracy.
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {features.map((feature, index) => (
+              <div 
+                key={index} 
+                className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition border border-blue-100"
+              >
+                <div className="flex justify-center mb-4">
+                  {feature.icon}
                 </div>
+                <h3 className="text-xl font-semibold text-center text-blue-800 mb-3">{feature.title}</h3>
+                <p className="text-gray-600 text-center">{feature.description}</p>
               </div>
-            </div>
+            ))}
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-16 bg-blue-800 text-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">KaramProof by the Numbers</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {stats.map((stat, index) => (
+              <div key={index} className="text-center">
+                <div className="text-4xl font-bold mb-2">{stat.number}</div>
+                <div className="text-blue-200">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Security Features */}
+      <section className="py-16 bg-white">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center text-blue-800 mb-12">Trusted by Leading Institutions</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { icon: <Lock className="w-12 h-12 text-blue-500" />, title: "256-bit Encryption" },
+              { icon: <Fingerprint className="w-12 h-12 text-teal-500" />, title: "Biometric Auth" },
+              { icon: <Cpu className="w-12 h-12 text-purple-500" />, title: "AI-Powered Scan" },
+              { icon: <Server className="w-12 h-12 text-amber-500" />, title: "Secure Cloud" },
+            ].map((item, index) => (
+              <div key={index} className="text-center">
+                <div className="flex justify-center mb-4">
+                  {item.icon}
+                </div>
+                <h3 className="font-semibold text-gray-800">{item.title}</h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* CTA Section */}
-      <div className="py-24 bg-gradient-to-br from-gray-900 to-blue-900">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Ready to Secure Your Certificates?
-          </h2>
-          <p className="text-xl text-blue-200 mb-12 max-w-2xl mx-auto">
-            Join thousands of institutions and users who trust SecureVerify 
-            for authentic certificate verification.
+      <section className="py-16 bg-gradient-to-r from-blue-600 to-blue-800 text-white">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold mb-6">Ready to Secure Your Certificates?</h2>
+          <p className="text-xl max-w-2xl mx-auto mb-10">
+            Join thousands of institutions and users who trust KaramProof for authentic certificate verification.
           </p>
           <button 
             onClick={onNavigateToLogin}
-            className="group bg-gradient-to-r from-blue-500 to-teal-500 text-white px-12 py-5 rounded-xl font-semibold text-lg hover:from-blue-600 hover:to-teal-600 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl flex items-center justify-center mx-auto"
+            className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg transition flex items-center justify-center mx-auto"
           >
             Start Verification Now
-            <ArrowRight className="ml-3 w-6 h-6 group-hover:translate-x-2 transition-transform" />
+            <ArrowRight className="ml-2 w-5 h-5" />
           </button>
         </div>
-      </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-800 text-white py-12">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+              <h3 className="font-semibold text-lg mb-4">About KaramProof</h3>
+              <ul className="space-y-2">
+                <li><a href="#" className="text-gray-300 hover:text-white">About Us</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-white">Our Team</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-white">Careers</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-white">Contact Us</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg mb-4">Services</h3>
+              <ul className="space-y-2">
+                <li><a href="#" className="text-gray-300 hover:text-white">Document Verification</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-white">Institute Registration</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-white">API Integration</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-white">Fraud Analytics</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg mb-4">Help & Support</h3>
+              <ul className="space-y-2">
+                <li><a href="#" className="text-gray-300 hover:text-white">FAQ</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-white">User Guide</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-white">Privacy Policy</a></li>
+                <li><a href="#" className="text-gray-300 hover:text-white">Terms of Service</a></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold text-lg mb-4">Connect With Us</h3>
+              <div className="flex space-x-4">
+                <a href="#" className="text-gray-300 hover:text-white">
+                  <span className="sr-only">Facebook</span>
+                  <i className="fab fa-facebook text-xl"></i>
+                </a>
+                <a href="#" className="text-gray-300 hover:text-white">
+                  <span className="sr-only">Twitter</span>
+                  <i className="fab fa-twitter text-xl"></i>
+                </a>
+                <a href="#" className="text-gray-300 hover:text-white">
+                  <span className="sr-only">LinkedIn</span>
+                  <i className="fab fa-linkedin text-xl"></i>
+                </a>
+                <a href="#" className="text-gray-300 hover:text-white">
+                  <span className="sr-only">YouTube</span>
+                  <i className="fab fa-youtube text-xl"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+            <p>© 2024 KaramProof. All rights reserved. | Digital India Initiative</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 };
 
-export default LandingPage;
+export default KaramProofLanding;

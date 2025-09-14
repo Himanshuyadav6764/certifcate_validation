@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import LandingPage from './components/LandingPage';
 import LoginPage from './components/LoginPage';
 import Dashboard from './components/Dashboard';
@@ -11,16 +11,13 @@ export type Page = 'landing' | 'login' | 'dashboard' | 'upload' | 'analytics';
 function App() {
   const [currentPage, setCurrentPage] = useState<Page>('landing');
   const [userType, setUserType] = useState<UserType>(null);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const handleLogin = (type: UserType) => {
     setUserType(type);
-    setIsLoggedIn(true);
     setCurrentPage('dashboard');
   };
 
   const handleLogout = () => {
-    setIsLoggedIn(false);
     setUserType(null);
     setCurrentPage('landing');
   };
@@ -32,21 +29,21 @@ function App() {
       case 'login':
         return <LoginPage onLogin={handleLogin} onBack={() => setCurrentPage('landing')} />;
       case 'dashboard':
-        return (
+        return userType ? (
           <Dashboard
             userType={userType}
-            onNavigate={setCurrentPage}
+            onNavigate={(page: string) => setCurrentPage(page as Page)}
             onLogout={handleLogout}
           />
-        );
+        ) : null;
       case 'upload':
-        return (
+        return userType ? (
           <CertificateUpload
             userType={userType}
             onBack={() => setCurrentPage('dashboard')}
             onLogout={handleLogout}
           />
-        );
+        ) : null;
       case 'analytics':
         return (
           <Analytics
